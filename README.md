@@ -1,1 +1,1 @@
-personalFinances
+personal_finances
