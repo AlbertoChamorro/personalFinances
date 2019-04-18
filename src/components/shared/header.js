@@ -1,33 +1,34 @@
 import React from 'react';
-import { View, Text, Image, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import { View, Image, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
+import { Colors } from '../../styles/variables';
 
 function Header(props){
     return (
         <View>
             <StatusBar barStyle="light-content" backgroundColor={styles.androidStatusBar.backgroundColor} />
-             <SafeAreaView style={styles.iOSSupportSafeArea}>
-                 <View style={styles.appBar}>
+            <SafeAreaView style={styles.iOSSupportSafeArea}>
+                <View style={styles.appBar}>
                     <Image source={require('../../assets/peace.png')}
                             style={styles.logo}/>
 
                     <View style={styles.appBarText}>
                         {props.children}
                     </View>
-                 </View>
+                </View>
              </SafeAreaView>
         </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
     androidStatusBar: {
-        backgroundColor: '#0D47A1',
+        backgroundColor: Colors.secundary,
     },
     iOSSupportSafeArea: {
-        backgroundColor: '#1565C0',
+        backgroundColor: Colors.primary,
     },
     appBar: {
-        backgroundColor: '#1565C0',
+        backgroundColor: Colors.primary,
         display: 'flex',
         flexDirection: 'row',
         paddingVertical: 10,
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     logo: {
         width: 32,
         height: 32,
-        tintColor: '#FFFFFF',
+        tintColor: Colors.accent,
         resizeMode: 'contain'
     }
 });
