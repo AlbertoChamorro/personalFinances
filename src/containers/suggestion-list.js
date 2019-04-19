@@ -1,49 +1,27 @@
 import React, {Component} from 'react';
-import { View, FlatList, Text } from 'react-native';
+import { FlatList, Text } from 'react-native';
 import Layout from '../components/suggestion-list-layout';
+import { data } from '../mocks/suggestions.json';
+import Empty from '../components/shared/empty-list';
+import Separator from '../components/shared/separator';
 
-export default class Suggestions extends Component {
+export default class SuggestionList extends Component {
     render(){
-        const suggestions = [
-            {
-                title: 'Finanzas personales',
-                key: '1'
-            },
-            {
-                title: 'Metas',
-                key: '2'
-            },
-            {
-                title: 'Presupuesto',
-                key: '3'
-            },
-            {
-                title: '¿Qué hacer?',
-                key: '4'
-            },
-            {
-                title: 'Tips',
-                key: '5'
-            },
-            {
-                title: 'Red',
-                key: '6'
-            },
-            {
-                title: 'Compartido con otros',
-                key: '7'
-            }
-        ];
+        // const suggestions = [];
+        const suggestions = data;
         return (
-            <View>
-                <Layout title="Recomendado para ti">
-                    <FlatList
-                        data={suggestions}
-                        renderItem={({item}) => <Text key={item.key}>{item.title}</Text>}
-                    >
-                    </FlatList>
-                </Layout>
-            </View>
+            <Layout title="Sugerencias para ti">
+                <FlatList
+                    data={suggestions}
+                    ListEmptyComponent={this.renderEmpty}
+                    ItemSeparatorComponent={this.itemSeparator}
+                    renderItem={({item}) => <Text key={item.key}>{item.title}</Text>}
+                >
+                </FlatList>
+            </Layout>
         );
     }
+
+    renderEmpty = () => <Empty message="No se encontraron sugerencias"></Empty> 
+    itemSeparator = () => <Separator/>
 }

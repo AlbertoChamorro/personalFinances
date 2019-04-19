@@ -35,10 +35,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10
     },
     appBarText: {
-        marginTop: 6,
-        flex: 1,
         flexDirection: 'row',
-        justifyContent: 'flex-end'
+        justifyContent: 'flex-end',
+        flex: 1,
+        marginTop: 6,
     },
     logo: {
         width: 32,

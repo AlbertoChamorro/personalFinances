@@ -1,0 +1,32 @@
+{
+    "data": [
+        {
+            "title": "Finanzas personales",
+            "key": "1"        
+        },
+        {
+            "title": "Metas",
+            "key": "2"
+        },
+        {
+            "title": "Presupuesto",
+            "key": "3"
+        },
+        {
+            "title": "¿Qué hacer?",
+            "key": "4"
+        },
+        {
+            "title": "Tips",
+            "key": "5"
+        },
+        {
+            "title": "Red",
+            "key": "6"
+        },
+        {
+            "title": "Compartido con otros",
+            "key": "7"
+        }
+    ]
+}
