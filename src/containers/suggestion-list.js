@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
-import { FlatList, Text } from 'react-native';
+import { FlatList } from 'react-native';
 import Layout from '../components/suggestion-list-layout';
 import { data } from '../mocks/suggestions.json';
 import Empty from '../components/shared/empty-list';
 import Separator from '../components/shared/separator';
+import Suggestion from '../components/suggestion';
 
 export default class SuggestionList extends Component {
     render(){
@@ -15,7 +16,7 @@ export default class SuggestionList extends Component {
                     data={suggestions}
                     ListEmptyComponent={this.renderEmpty}
                     ItemSeparatorComponent={this.itemSeparator}
-                    renderItem={({item}) => <Text key={item.key}>{item.title}</Text>}
+                    renderItem={this.renderItem}
                 >
                 </FlatList>
             </Layout>
@@ -23,5 +24,10 @@ export default class SuggestionList extends Component {
     }
 
     renderEmpty = () => <Empty message="No se encontraron sugerencias"></Empty> 
+    renderItem = ({item}) => {
+        return (
+            <Suggestion {...item} key={item.key}></Suggestion>
+        )
+    }
     itemSeparator = () => <Separator/>
 }
