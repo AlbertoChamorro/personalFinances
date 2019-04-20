@@ -5,8 +5,16 @@ import Home from './src/containers/home';
 import Header from './src/components/shared/header';
 import Suggestions from './src/containers/suggestion-list';
 
+import firebase from 'react-native-firebase';
+
 type Props = {};
 export default class App extends Component<Props> {
+
+  componentDidMount(){
+    firebase.database().goOnline();
+    console.log("online firebase remote server...");
+  }
+
   render() {
     return (
       <Home >
