@@ -6,7 +6,9 @@ class CategoryService {
     }
     
     async getAll() {
-        return await db.collection("categories").get();
+        return await db.collection("categories")
+                        .orderBy("priority")
+                        .get();
     }
 }
 

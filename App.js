@@ -36,7 +36,7 @@ export default class App extends Component<Props> {
     return (
       <Home >
         <Header>
-          <Text style={ {color: '#FFFFFF'} }>appName</Text>
+          <Text style={ {color: '#FFFFFF'} }>Proyectando mi vida</Text>
         </Header>
         <Text>Search</Text>
         <Text>Categories</Text>

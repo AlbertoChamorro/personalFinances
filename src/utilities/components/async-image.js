@@ -39,17 +39,20 @@ export default class AsyncImage extends Component {
     }
 
     render() {
+        let coverStyle = { ...this.props.style, alignSelf: 'center' };
         if (this.state.mounted == true) {
             if (this.state.loading == true) {
                 return (
                     <View key={this.props.path}>
-                        <ActivityIndicator style={{ ...this.props.style, alignSelf: 'center' }}/>
+                        <Image style={coverStyle} 
+                                source={require('../../assets/placeholder.png')} />
+                        <ActivityIndicator style={coverStyle}/>
                     </View>
                 );
             }
 
             return (
-                <Image style={this.props.style} 
+                <Image style={coverStyle} 
                         source={this.state 
                             ? {uri: this.state.url} 
                             : require('../../assets/placeholder.png')} />
