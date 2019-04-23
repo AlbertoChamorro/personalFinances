@@ -6,7 +6,7 @@ import Separator from '../components/shared/separator';
 import Suggestion from '../components/suggestion';
 
 export default class SuggestionList extends Component {
-    
+
     render(){
         return (
             <Layout title="Sugerencias para ti">

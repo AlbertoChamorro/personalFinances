@@ -8,17 +8,17 @@ function Suggestion(props){
     return (
         <View style={styles.container}>
             <View style={styles.containerCover}>
-                <AsyncImage path={"/static/categories/todo_02.png"}
+                <AsyncImage path={props.path}
                             style={styles.cover}>
                 </AsyncImage>
                 <View style={styles.genderContainer}>
-                    <Text style={styles.gender}>{props.gender || 'action'}</Text>
+                    <Text style={styles.gender}>{props.priority || 'action'}</Text>
                 </View>
             </View>
             <View style={styles.containerDetail}>
-                <Text style={styles.title}>{props.title || 'tittle'}</Text>
-                <Text style={styles.subtitle}>{props.subtitle || 'companyName'}</Text>
-                <Text style={styles.rating}>{props.rating || '0K vistas'}</Text>
+                <Text style={styles.title}>{props.name || 'tittle'}</Text>
+                <Text style={styles.subtitle}>{props.id || 'companyName'}</Text>
+                <Text style={styles.rating}>{props.created_at.toDate().toString() || '0K vistas'}</Text>
             </View>
         </View>
     );

@@ -12,6 +12,7 @@ export default class AsyncImage extends Component {
             mounted: true,
             path: null,
             url: null,
+            error: false
         };
     }
 
@@ -22,15 +23,14 @@ export default class AsyncImage extends Component {
 
     async getAndLoadHttpUrl() {
         if (this.state.mounted == true) {
-            const ref = storage.ref(this.props.path);
-            ref.getDownloadURL().then(data => {
-                this.setState({ url: data })
-                this.setState({ loading: false })
-            }).catch(error => {
-                // load place holder
-                // this.setState({ url: "/images/logoblue.jpg" })
-                this.setState({ loading: false })
-            })
+            storage.ref(this.props.path).getDownloadURL()
+                .then(data => {
+                    this.setState({ url: data })
+                    this.setState({ loading: false })
+                }).catch(_ => {
+                    this.setState({ error: true });
+                    this.setState({ loading: false });
+                })
         }
     }
 
@@ -41,18 +41,18 @@ export default class AsyncImage extends Component {
     render() {
         if (this.state.mounted == true) {
             if (this.state.loading == true) {
-                // load placeholder
                 return (
-                    <View key={this.props.path}
-                          style={{ width: '100%', alignItems: 'center', justifyContent: 'center' }} >
-                        <ActivityIndicator />
+                    <View key={this.props.path}>
+                        <ActivityIndicator style={{ ...this.props.style, alignSelf: 'center' }}/>
                     </View>
                 );
             }
 
-            // load path in storage
             return (
-                <Image style={this.props.style} source={{uri: this.state.url}} />
+                <Image style={this.props.style} 
+                        source={this.state 
+                            ? {uri: this.state.url} 
+                            : require('../../assets/placeholder.png')} />
             );
         }
         else {

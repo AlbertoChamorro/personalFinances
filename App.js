@@ -29,6 +29,7 @@ export default class App extends Component<Props> {
     this.setState({
       categories
     });
+    console.log(categories);
   }
 
   render() {
