@@ -1,14 +1,16 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { Colors, FontSize } from '../styles/variables';
+
+import AsyncImage from '../utilities/components/async-image';
 
 function Suggestion(props){
     return (
         <View style={styles.container}>
             <View style={styles.containerCover}>
-                <Image source={require('../assets/cover_home.jpg')}
-                    style={styles.cover}>
-                </Image>
+                <AsyncImage path={"/static/categories/todo_02.png"}
+                            style={styles.cover}>
+                </AsyncImage>
                 <View style={styles.genderContainer}>
                     <Text style={styles.gender}>{props.gender || 'action'}</Text>
                 </View>

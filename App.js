@@ -5,14 +5,30 @@ import Home from './src/containers/home';
 import Header from './src/components/shared/header';
 import Suggestions from './src/containers/suggestion-list';
 
-import firebase from 'react-native-firebase';
+// import api service
+import categoryService from './src/api/categories';
 
 type Props = {};
 export default class App extends Component<Props> {
 
-  componentDidMount(){
-    firebase.database().goOnline();
-    console.log("online firebase remote server...");
+  state = {
+    categories: []
+  };
+
+  async componentDidMount(){
+    let categories = [];
+    let snapshot = await categoryService.getAll()
+    if(snapshot.size > 0){
+      snapshot.forEach(function(doc) {
+        categories.push({
+            id: doc.id,
+            ...doc.data()
+          });
+      });
+    }
+    this.setState({
+      categories
+    });
   }
 
   render() {
@@ -23,7 +39,7 @@ export default class App extends Component<Props> {
         </Header>
         <Text>Search</Text>
         <Text>Categories</Text>
-        <Suggestions></Suggestions>
+        <Suggestions list={this.state.categories}></Suggestions>
       </Home>
     );
   }
