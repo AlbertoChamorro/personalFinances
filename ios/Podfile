@@ -6,8 +6,9 @@ target 'personalFinances' do
   # use_frameworks!
 
   # Pods for personalFinances
-  pod 'Firebase/Core', '~> 5.15.0'
-  pod 'Firebase/Database', '~> 5.15.0'
+  pod 'Firebase/Core', '~> 5.20.1'
+  pod 'Firebase/Firestore', '~> 5.20.1'
+  pod 'Firebase/Storage', '~> 5.20.1'
 
   target 'personalFinances-tvOSTests' do
     inherit! :search_paths
