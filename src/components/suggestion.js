@@ -1,22 +1,27 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
-import { Colors, FontSize } from '../styles/variables';
+import {StyleSheet, View, Text} from 'react-native';
+import {Colors, FontSize} from '../styles/variables';
+
+import AsyncImage from '../utilities/components/async-image';
+import DateUtil from '../utilities/date-util';
 
 function Suggestion(props){
     return (
         <View style={styles.container}>
             <View style={styles.containerCover}>
-                <Image source={require('../assets/cover_home.jpg')}
-                    style={styles.cover}>
-                </Image>
-                <View style={styles.genderContainer}>
-                    <Text style={styles.gender}>{props.gender || 'action'}</Text>
+                <AsyncImage path={props.path}
+                            style={styles.cover}>
+                </AsyncImage>
+                <View style={styles.containerIndicatorCover}>
+                    <Text style={styles.indicatorCover}>{props.priority || '---'}</Text>
                 </View>
             </View>
             <View style={styles.containerDetail}>
-                <Text style={styles.title}>{props.title || 'tittle'}</Text>
-                <Text style={styles.subtitle}>{props.subtitle || 'companyName'}</Text>
-                <Text style={styles.rating}>{props.rating || '0K vistas'}</Text>
+                <Text style={styles.title}>{props.name || '---'}</Text>
+                <Text style={styles.subtitle}>{props.id || '---'}</Text>
+                <Text style={styles.description}>
+                    { DateUtil.toDate(props.created_at.toDate()).toString() || '---' }
+                </Text>
             </View>
         </View>
     );
@@ -32,7 +37,7 @@ const styles = StyleSheet.create({
     containerCover: {
         position: 'relative'
     },
-    genderContainer: {
+    containerIndicatorCover: {
         position: 'absolute',
         top: 0,
         right: 0,
@@ -40,7 +45,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 6,
         paddingVertical: 4
     },
-    gender: {
+    indicatorCover: {
         color: Colors.white,
         fontSize: FontSize.smallerFontSize
     },
@@ -69,7 +74,7 @@ const styles = StyleSheet.create({
         overflow: 'hidden',
         marginTop: -4
     },
-    rating: {
+    description: {
         fontWeight: 'bold',
         fontSize: FontSize.defaultFontSize,
         color: Colors.gray

@@ -1,6 +1,6 @@
 import React from 'react';
-import { View, Image, StyleSheet, SafeAreaView, StatusBar } from 'react-native';
-import { Colors } from '../../styles/variables';
+import {View, Image, StyleSheet, SafeAreaView, StatusBar} from 'react-native';
+import {Colors} from '../../styles/variables';
 
 function Header(props){
     return (
