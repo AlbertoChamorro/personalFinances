@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Colors, Borders } from '../../styles/variables';
+import {StyleSheet, View} from 'react-native';
+import {Colors, Borders} from '../../styles/variables';
 
 export default function Separator(props){
     switch (props.orientation) {

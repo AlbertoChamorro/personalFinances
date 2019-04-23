@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import { View, ActivityIndicator, Image } from 'react-native';
+import React, {Component} from 'react';
+import {View, ActivityIndicator, Image} from 'react-native';
 
-import { storage } from '../../api/config';
+import {storage} from '../../api/config';
 
 export default class AsyncImage extends Component {
 

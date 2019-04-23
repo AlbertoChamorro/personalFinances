@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
-import { Colors, FontSize } from '../../styles/variables';
+import {StyleSheet, View, Image, Text} from 'react-native';
+import {Colors, FontSize} from '../../styles/variables';
 
 export default function EmptyList(props){
     return (

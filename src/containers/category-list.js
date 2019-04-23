@@ -5,12 +5,13 @@ import Empty from '../components/shared/empty-list';
 import Separator from '../components/shared/separator';
 import Suggestion from '../components/suggestion';
 
-export default class SuggestionList extends Component {
+export default class CategoryList extends Component {
 
     render(){
         return (
-            <Layout title="Sugerencias para ti">
+            <Layout title="Categorías">
                 <FlatList
+                    horizontal
                     keyExtractor={this.getKey}
                     data={this.props.list}
                     ListEmptyComponent={this.renderEmpty}
