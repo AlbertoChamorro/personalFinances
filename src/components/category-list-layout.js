@@ -5,7 +5,7 @@ import {Colors, FontSize} from '../styles/variables';
 export default function CategoryListLayout(props){
     return (
         <ImageBackground source={require('../assets/cover-bg-03.png')}
-                style={styles.container}>
+                style={styles.bgContainer}>
             <View style={styles.container}>
                 <Text style={styles.title}>
                     {props.title}
@@ -17,15 +17,18 @@ export default function CategoryListLayout(props){
 }
 
 const styles = StyleSheet.create({
-    container: {
+    bgContainer: {
         paddingVertical: 6,
         paddingHorizontal: 10,
+    },
+    container: {
+        paddingVertical: 6
     },
     title: {
         color: Colors.gray,
         fontSize: FontSize.defaultFontSize,
         fontWeight: 'bold',
         marginVertical: 6,
-        marginLeft: -12
+        marginLeft: -2
     }
 });
