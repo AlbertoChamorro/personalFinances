@@ -1,9 +1,15 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
+import {Colors, FontSize} from '../styles/variables';
 
 function Category(props){
+    console.log(props);
     return (
-        <View style={style.container}>
+        <View style={[
+                    style.container, 
+                    {
+                        backgroundColor: props.bg_color
+                    }]}>
             <Text style={style.title}>{props.name}</Text>
         </View>
     );
@@ -11,8 +17,8 @@ function Category(props){
 
 const style = StyleSheet.create({
     container: {
-        backgroundColor: '#123',
-        width: 250,
+        backgroundColor: Colors.ligthGray,
+        width: 200,
         height: 100,
         borderRadius: 10,
         overflow: 'hidden',
@@ -20,11 +26,11 @@ const style = StyleSheet.create({
         justifyContent: 'center'
     },
     title: {
-        color: '#FFF',
-        fontSize: 26,
+        color: Colors.white,
+        fontSize: FontSize.giantFontSize,
         fontWeight: 'bold',
         paddingHorizontal: 2,
-        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowColor: Colors.shadow,
         textShadowOffset: {
             width: 2,
             height: 2

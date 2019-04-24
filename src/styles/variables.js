@@ -2,20 +2,20 @@ const skyBlue = '#1565C0';
 const darkSkyBlue = '#0D47A1';
 const white = '#FFFFFF';
 const gray = '#616161';
-const ligthGray = '#E0E0E0';
+const ligthGray = '#E0E0E0';// #C0C0C0
 const darkGray = '#424242'; // #212121
 const black = '#000000';
 const red = '#C62828';
 const pink = '#F06292';
 const disabled = '#F48FB1';
-
+const shadow = 'rgba(0, 0, 0, 0.75)';
 const primary = skyBlue;
 const secundary = darkSkyBlue;
 const accent = white;
 
 // colors
 var Colors = {
-    primary, secundary, accent, disabled,
+    primary, secundary, accent, disabled, shadow,
     skyBlue, darkGray, white, gray, darkGray, ligthGray, black, red, pink
 };
 
