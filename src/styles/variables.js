@@ -1,3 +1,9 @@
+/*
+/ https://htmlcolorcodes.com/es/
+/ https://unsplash.com/search/photos/transparent
+/ https://www.vectorstock.com/free-vectors/
+/ https://iconos8.es/icons/set/background
+*/
 const skyBlue = '#1565C0';
 const darkSkyBlue = '#0D47A1';
 const white = '#FFFFFF';

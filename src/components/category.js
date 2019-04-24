@@ -3,7 +3,6 @@ import {StyleSheet, View, Text} from 'react-native';
 import {Colors, FontSize} from '../styles/variables';
 
 function Category(props){
-    console.log(props);
     return (
         <View style={[
                     style.container, 
