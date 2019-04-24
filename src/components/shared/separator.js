@@ -52,6 +52,8 @@ const styles = StyleSheet.create({
         borderTopColor: Colors.ligthGray
     },
     borderRight: {
+        flex: 1,
+        marginHorizontal: 5,
         borderRightWidth: Borders.separator,
         borderRightColor: Colors.ligthGray
     },
@@ -59,7 +61,9 @@ const styles = StyleSheet.create({
         borderBottomWidth: Borders.separator,
         borderBottomColor: Colors.ligthGray
     },
-    borderLeft: {
+    borderLeft: {        
+        flex: 1,
+        marginHorizontal: 5,
         borderLeftWidth: Borders.separator,
         borderLeftColor: Colors.ligthGray
     }
