@@ -5,10 +5,9 @@ class CategoryService {
     constructor(){
     }
     
-    async getAll() {
-        return await db.collection("categories")
-                        .orderBy("priority")
-                        .get();
+    getAll() {
+        return db.collection("categories")
+                    .orderBy("priority");
     }
 }
 
