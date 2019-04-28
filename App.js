@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {Text} from 'react-native';
 
 import Home from './src/containers/home';
 import Header from './src/components/shared/header';
 import Suggestions from './src/containers/suggestion-list';
 import Categories from './src/containers/category-list';
-import Video from 'react-native-video';
+import Player from './src/utilities/containers/player';
 
 // import api service
 import categoryService from './src/api/categories';
@@ -38,29 +38,13 @@ export default class App extends Component<Props> {
     });
   }
 
-  // http://clips.vorwaerts-gmbh.de/VfE_html5.mp4
   render() {
     return (
       <Home >
         <Header>
           <Text style={ {color: '#FFFFFF'} }>Proyectando mi vida</Text>
         </Header>
-
-        <View style={{
-                    marginTop: 0.5,
-                    height: 140,
-                }}>
-            <Video source={{ uri: 'http://cbc.co/wp-content/uploads/2016/07/cbc-toma-vida-1.mp4' }}
-                style={{
-                    position: 'absolute',
-                    left: 0,
-                    right: 0,
-                    top: 0,
-                    bottom: 0,
-                }}
-                resizeMode="contain"
-           />
-        </View>
+        <Player />
         <Text>Search</Text>
         <Categories list={this.state.categories}></Categories>
         <Suggestions list={this.state.categories}></Suggestions>
