@@ -15,13 +15,15 @@ const red = '#C62828';
 const pink = '#F06292';
 const disabled = '#F48FB1';
 const shadow = 'rgba(0, 0, 0, 0.75)';
+const overlay = 'rgba(0, 0, 0, 0.1)';
+const semiOverlay = 'rgba(0, 0, 0, 0.5)';
 const primary = skyBlue;
 const secundary = darkSkyBlue;
 const accent = white;
 
 // colors
 var Colors = {
-    primary, secundary, accent, disabled, shadow,
+    primary, secundary, accent, disabled, shadow, overlay, semiOverlay,
     skyBlue, darkGray, white, gray, darkGray, ligthGray, black, red, pink
 };
 

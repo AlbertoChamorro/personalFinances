@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
-import {ActivityIndicator, StyleSheet} from 'react-native'
+import {ActivityIndicator, Text, StyleSheet} from 'react-native'
 import Video from 'react-native-video'
 import Layout from '../components/player-layout'
+import ControlLayout from '../components/control-layout'
+import PlayPause from '../components/play-pause'
 import {Colors} from '../../styles/variables'
 
 export default class Player extends Component {
@@ -9,7 +11,8 @@ export default class Player extends Component {
   // http://clips.vorwaerts-gmbh.de/VfE_html5.mp4
 
   state = {
-    isLoading: true
+    isLoading: true,
+    paused: true
   }
 
    onBuffer = ({isBuffering}) => {
@@ -24,6 +27,12 @@ export default class Player extends Component {
         })
     }
 
+    playPauseHandle = () => {
+        this.setState({
+            paused: !this.state.paused
+        })
+    }
+
     render() {
        return( 
             <Layout
@@ -32,12 +41,25 @@ export default class Player extends Component {
                     <Video source={{ uri: 'http://cbc.co/wp-content/uploads/2016/07/cbc-toma-vida-1.mp4' }}
                         style={style.video}
                         onBuffer={this.onBuffer}
+                        onLoad={this.onLoad}
                         resizeMode="contain"
+                        paused={this.state.paused}
                     />
                 }
                 loader={
-                    <ActivityIndicator style={style.indicatorLoading} 
+                    <ActivityIndicator
                         color={Colors.primary}/>
+                }
+                controls={
+                    <ControlLayout>
+                        <PlayPause
+                            onPress={this.playPauseHandle}
+                            paused={this.state.paused}
+                        />
+                        {/*<Text>progress bar |</Text>
+                        <Text>time left |</Text>
+                        <Text>fullscreen |</Text> */}
+                    </ControlLayout>
                 }
                 >
             </Layout>
@@ -52,7 +74,5 @@ const style = StyleSheet.create({
         right: 0,
         top: 0,
         bottom: 0,
-    },    
-    indicatorLoading: {
-    },
+    }
 })

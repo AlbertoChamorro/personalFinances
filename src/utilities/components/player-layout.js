@@ -1,17 +1,22 @@
 import React from 'react'
-import {View, Text, StyleSheet} from 'react-native'
+import {View, StyleSheet} from 'react-native'
+import {Colors} from '../../styles/variables'
 
-export default function Player(props){
+export default function PlayerLayout(props){
     return (
         <View style={style.container}>
             <View style={style.containerVideo}>
                 {props.video}
             </View>
-            <View style={style.overlay}>
+            {
+                props.isLoading &&
+                <View style={style.overlay}>
                 {
                     props.isLoading && props.loader
                 }
-            </View>
+                </View>
+            }
+            {props.controls}
         </View>
     )
 }
@@ -27,7 +32,7 @@ const style = StyleSheet.create({
         right: 0,
         top: 0,
         bottom: 0,
-        backgroundColor: 'black'
+        backgroundColor: Colors.black
     },
     overlay: {
         position: 'absolute',
@@ -35,7 +40,7 @@ const style = StyleSheet.create({
         right: 0,
         top: 0,
         bottom: 0,
-        // backgroundColor: 'rgba(0, 0, 0, 0.3)',
+        backgroundColor: Colors.overlay,
         justifyContent: 'center',
         alignItems: 'center'
     }
