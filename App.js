@@ -38,6 +38,7 @@ export default class App extends Component<Props> {
     });
   }
 
+  // http://clips.vorwaerts-gmbh.de/VfE_html5.mp4
   render() {
     return (
       <Home >
@@ -45,11 +46,11 @@ export default class App extends Component<Props> {
           <Text style={ {color: '#FFFFFF'} }>Proyectando mi vida</Text>
         </Header>
 
-        <View style={{
-                    flex: 1,
-                    height: 100
+        {/* <View style={{
+                    marginTop: 0.5,
+                    height: 140,
                 }}>
-          {/* <Video source={{ uri: 'http://cbc.co/wp-content/uploads/2016/07/cbc-toma-vida-1.mp4' }}
+            <Video source={{ uri: 'http://cbc.co/wp-content/uploads/2016/07/cbc-toma-vida-1.mp4' }}
                 style={{
                     position: 'absolute',
                     left: 0,
@@ -58,8 +59,8 @@ export default class App extends Component<Props> {
                     bottom: 0,
                 }}
                 resizeMode="contain"
-           /> */}
-        </View>
+           />
+        </View> */}
         <Text>Search</Text>
         <Categories list={this.state.categories}></Categories>
         <Suggestions list={this.state.categories}></Suggestions>
