@@ -5,7 +5,7 @@ import Home from './src/containers/home';
 import Header from './src/components/shared/header';
 import Suggestions from './src/containers/suggestion-list';
 import Categories from './src/containers/category-list';
-// import Video from 'react-native-video';
+import Video from 'react-native-video';
 
 // import api service
 import categoryService from './src/api/categories';
@@ -46,7 +46,7 @@ export default class App extends Component<Props> {
           <Text style={ {color: '#FFFFFF'} }>Proyectando mi vida</Text>
         </Header>
 
-        {/* <View style={{
+        <View style={{
                     marginTop: 0.5,
                     height: 140,
                 }}>
@@ -60,7 +60,7 @@ export default class App extends Component<Props> {
                 }}
                 resizeMode="contain"
            />
-        </View> */}
+        </View>
         <Text>Search</Text>
         <Categories list={this.state.categories}></Categories>
         <Suggestions list={this.state.categories}></Suggestions>
