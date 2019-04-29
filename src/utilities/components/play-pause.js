@@ -33,6 +33,7 @@ const style = StyleSheet.create({
     button: {
         width: 28,
         height: 28,
+        marginLeft: 4,
         tintColor: Colors.accent,
         resizeMode: 'contain'
     }

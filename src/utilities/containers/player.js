@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {ActivityIndicator, Text, StyleSheet} from 'react-native'
+import {TouchableHighlight, ActivityIndicator, Image, StyleSheet} from 'react-native'
 import Video from 'react-native-video'
 import Layout from '../components/player-layout'
 import ControlLayout from '../components/control-layout'
@@ -15,6 +15,8 @@ export default class Player extends Component {
     isError: false,
     paused: true
   }
+
+  player = null
 
    onBuffer = ({isBuffering}) => {
         this.setState({
@@ -41,6 +43,18 @@ export default class Player extends Component {
         })
     }
 
+    setPlayer = ref => {
+        this.player = ref
+    }
+
+    setFullScreen = () => {
+        this.player.presentFullscreenPlayer();
+    }
+
+    onProgress = (progress) => {
+        console.log(progress)
+    }
+
     render() {
        return( 
             <Layout
@@ -53,6 +67,8 @@ export default class Player extends Component {
                         onLoad={this.onLoad}
                         onError={this.onError}
                         resizeMode="contain"
+                        ref={this.setPlayer}
+                        onProgress={this.onProgress}
                         paused={this.state.paused}
                     />
                 }
@@ -67,8 +83,20 @@ export default class Player extends Component {
                             paused={this.state.paused}
                         />
                         {/*<Text>progress bar |</Text>
-                        <Text>time left |</Text>
-                        <Text>fullscreen |</Text> */}
+                        <Text>time left |</Text> */}
+
+                        <TouchableHighlight
+                            onPress={this.setFullScreen}
+                            underlayColor={Colors.overlay}
+                            style={style.touchableFullScreen}
+                            hitSlop={{
+                                left: 5, 
+                                top: 5, 
+                                bottom: 5, 
+                                right: 5
+                            }}>
+                            <Image source={require('../../assets/fullscreen.png')} style={style.image}/>
+                        </TouchableHighlight>
                     </ControlLayout>
                 }
                 >
@@ -84,5 +112,15 @@ const style = StyleSheet.create({
         right: 0,
         top: 0,
         bottom: 0,
+    },
+    touchableFullScreen: {
+        position: 'absolute',
+        right: 4
+    },
+    image: {
+        width: 28,
+        height: 28,
+        tintColor: Colors.accent,
+        resizeMode: 'contain'
     }
 })
