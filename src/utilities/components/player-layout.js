@@ -1,6 +1,6 @@
 import React from 'react'
-import {View, StyleSheet} from 'react-native'
-import {Colors} from '../../styles/variables'
+import {View, Text, Image, StyleSheet} from 'react-native'
+import {Colors, FontSize} from '../../styles/variables'
 
 export default function PlayerLayout(props){
     return (
@@ -16,7 +16,16 @@ export default function PlayerLayout(props){
                 }
                 </View>
             }
-            {props.controls}
+            {
+                !props.isError && props.controls
+            }
+            {
+                props.isError && 
+                <View style={style.error}>
+                    <Image source={require('../../assets/sad.png')} style={style.image}/>
+                    <Text style={style.message}>Lo sentimos ha ocurrido un error al cargar el video</Text>
+                </View>
+            }
         </View>
     )
 }
@@ -43,5 +52,26 @@ const style = StyleSheet.create({
         backgroundColor: Colors.overlay,
         justifyContent: 'center',
         alignItems: 'center'
+    },
+    error: {
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom: 0,
+        backgroundColor: Colors.ligthGray,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    image: {
+        width: 52,
+        height: 52,
+        tintColor: Colors.darkGray,
+        resizeMode: 'contain'
+    },
+    message: {
+        color: Colors.darkGray,
+        marginTop: 6,
+        fontSize: FontSize.smallerFontSize
     }
 })

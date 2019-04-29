@@ -12,6 +12,7 @@ export default class Player extends Component {
 
   state = {
     isLoading: true,
+    isError: false,
     paused: true
   }
 
@@ -33,15 +34,24 @@ export default class Player extends Component {
         })
     }
 
+    onError = () => {
+        this.setState({
+            isError: true,
+            isLoading: false
+        })
+    }
+
     render() {
        return( 
             <Layout
                 isLoading={this.state.isLoading}
+                isError={this.state.isError}
                 video={
                     <Video source={{ uri: 'http://cbc.co/wp-content/uploads/2016/07/cbc-toma-vida-1.mp4' }}
                         style={style.video}
                         onBuffer={this.onBuffer}
                         onLoad={this.onLoad}
+                        onError={this.onError}
                         resizeMode="contain"
                         paused={this.state.paused}
                     />
